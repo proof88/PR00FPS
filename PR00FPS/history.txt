@@ -1,0 +1,132 @@
+>>> PR00FPS history.txt <<<
+
+ > 0.5 alpha - 2007.03.01.
+  > elsõ hivatalos alfa verzió
+
+#############################################################
+#############################################################
+
+ > 0.9 beta - 2007.04.19
+
+ GRAFIKUS MOTOR: RC1
+
+  > bugfix: most már akkor is be tud tölteni .obj fájlt, ha 3ds maxban exportálási
+            beállításoknál be van jelölve a compress numbers opció.
+  > további néhány apró bugfix
+  > BMP-ben tárolt karakterek feldolgozása és szöveg kiíró függvény
+  > módosított kirajzolása az átlátszó objektumoknak
+  > grafikus motorban végrehajtott optimalizáció során kb. 30%-kal gyorsabb a megjelenítés.
+    A gyorsulás mértéke számítógép konfigurációként változhat.
+  > a grafikus motor most már támogatja a hardveres textúra tömörítést. Megfelelõ hardver esetén
+    kevesebb szükséges VRAM-ot és nagyobb sebességet lehet elérni. Ezzel a fenti 30%-os gyorsulás
+    tovább növelhetõ, akár 2x-esére is növelheti az alfa verzióhoz mellékelt motor megjelenítési
+    sebességét.
+  > Új funkció a motorban az objektum klónozás, mely lehetõvé teszi, hogy több objektum közös
+    test-adatokat használhasson, így a betöltési idõ és a szükséges memória ismétlõdõ objektumoknál
+    (itemek, ellenségek) csökkent.
+
+ > elkészült:
+  > a fõablak ikonja a program ikonja
+  > töltés közben szövegek kiírása
+  > lövedékek becsapódnak, illetve ha messze járnak a pályától, szintén törlõdnek
+  > lövedéknyomok (nem mindenhol, de nem is szándékozom mindenhova (idõhiány))
+  > rakéta füstöl
+  > meg még máshol is van füst effekt
+  > a mozgó platformok visznek magukkal
+  > a játékos, ha kirepül a pályáról, már nem repül a végtelenségig, sõt, meghal XD
+  > botok
+  > a robbanás (rakéta) ellöki a playert (és a botokat is), és a robbanás-player-távolság alapján
+   sérül is a player (és a botok is)
+  > nagyobb esés esetén szintén sérülés az esés nagyságától függõen
+  > sérülés esetén vöröses motion blur (ha be van kapcsolva a részletes grafikai beállításokban)
+  > HUD (Heads Up Display)
+  > in-game menü gombjai
+  > fegyverek végleges mûködése (alpha óta gépfegyverét és bazookáét véglegesítettem)
+  > automatikus fegyverváltás (opcionális):
+      ha aktuális fegyverben nincs töltény és felveszel lövedéket egy fegyverhez, átvált arra;
+      ha lövés után már nincs több töltény, akkor a legerõsebb fegyverre vált, amiben még van töltény;
+      ha olyan fegyverre váltasz, amihez nincs töltény, akkor a legerõsebb töltényes fegyverre vált.
+  > rakétavetõ automatikus újratöltése (opcionális)
+      ha a rakétavetõben nincs rakéta, de a playernél még van, akkor újratölt R lenyomása nélkül
+  > képernyõkímélõ kikapcsolása, ill. monitor energiagazdálkodása opciók mûködnek
+  > új map: Arena (töltõképernyõ és égbolt nélkül)
+
+ > módosult:
+  > minden ablak elfér 800x600-as felbontásban
+  > célkereszt méretének változása finomabb
+  > futás 27%-kal gyorsabb, séta sebessége maradt (kb. negyede a futási sebességnek)
+  > ugrásnál mozgástól függõen kis vetõdés fíling, a vetõdések mértéke egymás utáni ugrások sorozata
+      esetén összeadódik és a futás sebességénél is gyorsabban mozoghat a player
+  > rooms map véglegesítve több itemmel
+  > menüben ablakok kicsit módosultak, több embernek is problémátt okozott rátalálni
+    a részletes grafikai beállításokra. :) Gombok feltûnõbbek, hintek elõbb megjelennek, stb...
+  > gépfegyver "kevés a lõszer" warningja eltûnik, ha 0 töltényünk van, ekkor megszûnik
+    a kijelzõjén a számok fényintenzitásának pulzálása is
+  > 4x-es sebzés item jele (Q) most már 4x
+  > régi, mentésként bennmaradt kódok egy része eltávolítva
+  > itemkezelõben kisebb optimalizáció
+
+ > bugfix:
+  (bár érdekes egy eleve csak félkész programnál bugról beszélni, de azért próbáljuk meg XD)
+  > kisebb memória szivárgások megszüntetve
+  > ugrás és zuhanás most már ok és nem fps-függõ
+  > ha függõlegesen mozgó platform felülrõl nekiütközik a playernek,
+    visszafordul
+  X> a map betöltõ 2x töltötte be a pisztoly tár itemeket, javítva
+  X> rooms mapon távoli vágósík okozta hiba javítva
+  X> in-game menü vs. egérkurzor gondok javítva
+  X> gépfegyver kijelzõje látható maradt másik fegyverre való váltáskor, javítva
+  X> ritka esetben, ha lövés közben váltottunk gépfegyverrõl rakétavetõre, nem tûnt el
+     a gépfegyver torkolattüze, javítva
+  X> bazooka újratöltésénél, ha a tartalék rakéták száma kevesebb volt, mint
+     amennyi egyszerre belefér a bazookába, és a bazookában legalább 1 raksi volt,
+     maxra töltötte a raksit, a tartalékok száma pedig negatív lett. Javítva.
+  X> bazooka lövedéke már nem a player fejébõl indul
+  X> bazooka lövedéke arra néz, amerre kilõtték XD (eddig rossz tengelyen forgattam)
+
+ > ismert bugok:
+  > ha kisebb tárgyra akarsz ugrani, de nem tudsz, mert alapból lehetetlen lenne, 
+    megáll a player a levegõben és amíg hozzáér a tárgyhoz, ott is marad XD
+  > in-game menü, ha új formot kell behozni, enterre ok a focus, egérre nem
+
+#############################################################
+#############################################################
+
+ > 0.9 beta - 2007.04.19
+
+ > elkészült:
+  > Arena map töltõképernyõje és hozzá égbolt
+
+ > módosult:
+  > bot nem pörög, hanem halványodik, ha meghal
+
+ > bugfix:
+  > ha egy bot kirepült a pályáról, a felhasználó halálát írta ki a játék
+  > ha játékosnál van a 4x-es sebzés és meghal, eltûnik a pulzáló kékség
+  > "csapat csapat ellen" és Gauss-elimináció játékmódoknál a frag táblánál
+    rossz színnel voltak kiírva a nevek
+  > ha a játék véget ér, már nem spawnolhat bot
+  > néha nem teleportált a teleport
+
+#############################################################
+#############################################################
+
+ > 1.0 - 2007.04.21
+ 
+> elkészült:
+  > hangok
+  > névjegy résznél külön köszönet kitöltve
+  > magenta hud
+
+> módosult
+  > HUD: aktuális fegyver ha gépfegyver, akkor géppityut mutat
+
+> bugfix:
+  > lövedék vagy füst okozta access violation miatti váratlan kilépés javítva
+  > a botkezelõ rendszerben lévõ hiba miatti access violation miatti váratlan kilépés javítva
+  > a grafikus motor stabilitási gondjai javítva
+  > egyéb, stabilitással kapcsolatos problémák javítva
+  > ha player meghalt, és épp kifogyott a rakétavetõbõl a rakéta, halál után is újratöltötte a rakétavetõt
+
+#############################################################
+#############################################################
