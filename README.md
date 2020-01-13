@@ -29,21 +29,21 @@ TODO add screenshot of game
 
 ### Players
 
-There are 2 types of players apart from the player sitting in front of the computer: snails and robots. Why these? Well, my old graphics library doesn't support model animation so I had to think of enemies which don't need animation, so I came up with the idea of sliding snails and floating robots. Snails fire rockets, robots fire with machine guns. They have unlimited ammo but they don't pick up items. Enemies fire at each other not just the player.
+There are 2 types of players apart from the player sitting in front of the computer: **snails and robots**. Why these? Well, my old graphics library doesn't support model animation so I had to think of enemies which don't need animation, so I came up with the idea of sliding snails and floating robots. Snails fire rockets, robots fire with machine guns. They have unlimited ammo but they don't pick up items. Enemies fire at each other not just the player.
 
 ### Weapons
 
-There are 3 weapons in the game: pistol, machine gun, bazooka.
+There are 3 weapons in the game: **pistol, machine gun, bazooka**.
 Every weapon has its own ammo. You can have a maximum of 99 ammo for each weapon. You have every weapon by default but you have only 8 bullets in your pistol. Pistol and machine gun doesn't need reloading but the bazooka can hold only 5 rockets at a time so you have to reload that sometimes. It's recommended to turn on optical drive interactivity in settings for more game experience . :)
 
 ### Pick-up-able items
 
-Items on the map can be picked up by the player. Robots and snails don't pick up items. Items float in their place and rotate slowly. The red cross increments health by 25. The yellowish shield increments shield by 50. Pistol magazine holds 8 bullets, machine gun magazine holds 30 bullets. The big rotating boxes contain rockets, 5 rockets in each box. The blue T character item gives you the ability to teleport from the current location to another randomly selected location on the map by pressing E - useful when you have to flee from a nasty situation. You can use teleport once after picking it up. The 4x item gives you quad damage so every hit will hurt the enemy 4 times. Quad damage lasts only for a short period of time (if I remember correctly, 30 seconds) or until we die.
+Items on the map can be picked up by the player. Robots and snails don't pick up items. Items float in their place and rotate slowly. The **red cross** increments health by 25. The **yellowish shield** increments shield by 50. **Pistol magazine** holds 8 bullets, **machine gun magazine** holds 30 bullets. The **big rotating boxes** contain rockets, 5 rockets in each box. The **blue T character** item gives you the ability to teleport from the current location to another randomly selected location on the map by pressing E - useful when you have to flee from a nasty situation. You can use teleport once after picking it up. The **4x item** gives you quad damage so every hit will hurt the enemy 4 times. Quad damage lasts only for a short period of time (if I remember correctly, 30 seconds) or until we die.
 Every item gets respawned after a short period of time at the same place after picking it up.
 
 ## Code Structure
 
-I used Delphi because I had the most routine in Delphi at that time. The game uses tmcsgfxlib2 compiled into gfxcore.dll for the rendering. The advantage of this structure is that I can modify the graphics library without rebuilding the game, and I can modify the game without rebuilding the graphics library, and I can use this library in my other projects, too.
+I used Delphi because I had the most routine in Delphi at that time. The game uses [tmcsgfxlib2 library](https://github.com/proof88/tmcsgfxlib2) compiled into gfxcore.dll for the rendering. The advantage of this structure is that I can modify the graphics library without rebuilding the game, and I can modify the game without rebuilding the graphics library, and I can use this library in my other projects, too.
 
 Delphi supports object oriented programming but I didn't use it. The whole game looked like this: the main program used a lot of units, every window (form) had its own unit, and separate units contained the collision detection functions, map handling functions, etc. But there weren't any classes, just type definitions. For example, there wasn't a map class, instead of that, there was a TMap record containing map-related data and every map-related function had the prefix "map", for example, mapLoadMap() loaded the given map, mapFlush() removed it from memory. So the whole game was written using functions and records, which is a little strange but that's all I could do at that time.
 
