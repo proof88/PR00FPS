@@ -25,7 +25,7 @@ After successfully loading the game, we spawn on the map and you can play the ga
 
 If you press ESC during game, the in-game menu shows up. I won't describe it because I think it's very straightforward.
 
-TODO add screenshot of game
+![Screenshot](shot1_en.jpg)
 
 ### Players
 
@@ -47,7 +47,7 @@ I used Delphi because I had the most routine in Delphi at that time. The game us
 
 Delphi supports object oriented programming but I didn't use it. The whole game looked like this: the main program used a lot of units, every window (form) had its own unit, and separate units contained the collision detection functions, map handling functions, etc. But there weren't any classes, just type definitions. For example, there wasn't a map class, instead of that, there was a TMap record containing map-related data and every map-related function had the prefix "map", for example, mapLoadMap() loaded the given map, mapFlush() removed it from memory. So the whole game was written using functions and records, which is a little strange but that's all I could do at that time.
 
-TODO: add pic of structure
+![Picture about structure](felepites.jpg)
 
 The graphics library doesn't contain much optimization related to rendering. That's why the game can be said to be slow but it isn't as slow as expected because the polygon number is low and the maps are small. The library doesn't decide whether an object is behind you or behind the walls, it draws it anyway. That's why the maps are so small. But the game still ran okay on school computers. Texture compression helped a lot. This means if the hardware supports texture compression then textures are stored in a compressed format in video memory. This can boost up performance significantly with integrated video chips, too.
 
