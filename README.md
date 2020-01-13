@@ -26,7 +26,7 @@ After successfully loading the game, we spawn on the map and you can play the ga
 If you press ESC during game, the in-game menu shows up. I won't describe it because I think it's very straightforward.
 
 <p align="center">
-  ![Screenshot](shot1_en.jpg)
+  <img src="shot1_en.jpg">
 </p>
 
 ### Players
