@@ -25,8 +25,12 @@ After successfully loading the game, we spawn on the map and you can play the ga
 
 If you press ESC during game, the in-game menu shows up. I won't describe it because I think it's very straightforward.
 
+### Gameplay Video
+
+Clicking on the image below brings you to a short YouTube video showing a gameplay:
+
 <p align="center">
-  <img src="shot1_en.jpg">
+  <a href="http://www.youtube.com/watch?feature=player_embedded&v=mdHTQn-fEjE" target="_blank"><img src="shot1_en.jpg" alt="Click to see the video!"/></a>
 </p>
 
 ### Players
