@@ -39,12 +39,13 @@ There are 2 types of players apart from the player sitting in front of the compu
 
 ### Weapons
 
-There are 3 weapons in the game: **pistol, machine gun, bazooka**.
+There are 3 weapons in the game: **pistol, machine gun, bazooka**.<br/>
 Every weapon has its own ammo. You can have a maximum of 99 ammo for each weapon. You have every weapon by default but you have only 8 bullets in your pistol. Pistol and machine gun doesn't need reloading but the bazooka can hold only 5 rockets at a time so you have to reload that sometimes. It's recommended to turn on optical drive interactivity in settings for more game experience . :)
 
 ### Pick-up-able items
 
-Items on the map can be picked up by the player. Robots and snails don't pick up items. Items float in their place and rotate slowly. The **red cross** increments health by 25. The **yellowish shield** increments shield by 50. **Pistol magazine** holds 8 bullets, **machine gun magazine** holds 30 bullets. The **big rotating boxes** contain rockets, 5 rockets in each box. The **blue T character** item gives you the ability to teleport from the current location to another randomly selected location on the map by pressing E - useful when you have to flee from a nasty situation. You can use teleport once after picking it up. The **4x item** gives you quad damage so every hit will hurt the enemy 4 times. Quad damage lasts only for a short period of time (if I remember correctly, 30 seconds) or until we die.
+Items on the map can be picked up by the player. Robots and snails don't pick up items. Items float in their place and rotate slowly.<br/>
+The **red cross** increments health by 25. The **yellowish shield** increments shield by 50. **Pistol magazine** holds 8 bullets, **machine gun magazine** holds 30 bullets. The **big rotating boxes** contain rockets, 5 rockets in each box. The **blue T character** item gives you the ability to teleport from the current location to another randomly selected location on the map by pressing E - useful when you have to flee from a nasty situation. You can use teleport once after picking it up. The **4x item** gives you quad damage so every hit will hurt the enemy 4 times. Quad damage lasts only for a short period of time (if I remember correctly, 30 seconds) or until we die.<br/>
 Every item gets respawned after a short period of time at the same place after picking it up.
 
 ## Code Structure
