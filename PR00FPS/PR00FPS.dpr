@@ -184,6 +184,7 @@ var
   newmap,settingchanged: boolean;          // newmap igaz, ha játék közben új mapra lépünk,
                                               // settingchanged igaz, ha játék közben újraindítást igényló beállítást változtattunk
   restarting: boolean;                     // újraindítjuk-e a játékot
+  almafa: boolean;
   botslist: string;                        // ide "lopjuk" el a kiválasztott botok listáját
   alliedlist: string;                      // kiválasztott csapattársak nevei vagy maga Gauss XD
   gamestarted: cardinal;                   // mikor kezdtük el a játékot (akkor kell, ha idõlimit van beáálítva)
@@ -1705,6 +1706,7 @@ begin
          restarting := TRUE;
          MainLoopInitialize;
          HideMenu;
+         almafa := TRUE;
        end;
     5: begin
          if (settings^.audio_sfx) then FSOUND_playsound(FSOUND_free,snd_btnpress);
@@ -2021,7 +2023,7 @@ begin
   setforegroundwindow(gamewindow.hwindow);
   setfocus(gamewindow.hwindow);
   mouseToWndCenter;
-  fps_ms := 0;
+  fps_ms := gettickcount();
   if ( GAME_MAXFPS > -1 ) then fps := GAME_MAXFPS
     else fps := 85;
   fps_old := 0;
@@ -5430,10 +5432,21 @@ end;
 
 }
 procedure FrameLimiter;
+var
+  alma: integer;
 begin
   if ( GAME_MAXFPS > 0 ) then
     begin
-      if ( (1000 div GAME_MAXFPS) - fps_ms2 > 0 ) then sleep((1000 div GAME_MAXFPS) - fps_ms2)
+      alma := (1000 div GAME_MAXFPS) - fps_ms2;
+      if ( almafa ) then
+      begin
+        almafa := false;
+      end;
+      if ( (alma > 0) ) then
+      begin
+        if ( alma < 20 ) then
+          sleep(alma);
+      end
         else sleep(1);
     end;
 end;
@@ -6199,15 +6212,20 @@ begin
                           C_DrawScene;
                           UpdateWindow(gamewindow.hwindow);
                         end;
-                      if ( (fps_ms - fps_ms_old) >= GAME_FPS_INTERVAL ) then
+                      if ( fps_ms - fps_ms_old >= GAME_FPS_INTERVAL ) then
                         begin
                           fps := round(fps_old*(1000/GAME_FPS_INTERVAL));
                           if ( firstframe ) then
                             begin
                               firstframe := FALSE;
                               startpic_takeaway := TRUE;
-                              tmcsdeleteobject(obj_mapsample);
-                              tmcsdeletetexture(tex_mapsample);
+                              if ( obj_mapsample <> -1 ) then
+                              begin
+                                tmcsdeleteobject(obj_mapsample);
+                                obj_mapsample := -1;
+                                tmcsdeletetexture(tex_mapsample);
+                                tex_mapsample := -1;
+                              end;
                             end;
                           fps_old := 0;
                           fps_ms_old := fps_ms;
@@ -6403,6 +6421,7 @@ begin
                       begin
                         tmcsSetGamma(GAME_GAMMA_MAX_R-settings^.video_gamma,GAME_GAMMA_MAX_G-settings^.video_gamma,GAME_GAMMA_MAX_B-settings^.video_gamma);
                         newmap := FALSE;
+                        almafa := FALSE;
                         repeat
                           if ( newmap ) then newmap := FALSE;
                           WinMain(hInstance,hPrevInst,CmdLine,CmdShow);
