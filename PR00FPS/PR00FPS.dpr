@@ -1354,8 +1354,6 @@ begin
   tmcshideobject(obj_menubg);
   tmcsshowobject(obj_map);
   if ( obj_skybox > -1 ) then tmcsshowobject(obj_skybox);
-  if ( settings^.game_showhud and (player.health > 0) ) then showhud;
-  if ( settings^.game_showxhair and (player.health > 0) ) then showxhair;
   for i := 1 to GAME_INGAME_MENU_BTNCOUNT do
     tmcshideobject(obj_menubtns_up[i]);
   while ( showcursor(FALSE) > -1 ) do ;
@@ -1368,6 +1366,8 @@ end;
 procedure ReturnToGame;
 begin
   hidemenu;
+  if ( settings^.game_showhud and (player.health > 0) ) then showhud;
+  if ( settings^.game_showxhair and (player.health > 0) ) then showxhair;
   inmenu := not(inmenu);
   mouseToWndCenter;
   while ( showcursor(FALSE) > -1 ) do ;
@@ -1943,6 +1943,8 @@ begin
             begin
               playerdefaults(FALSE);
               hidemenu;
+              if ( settings^.game_showhud and (player.health > 0) ) then showhud;
+              if ( settings^.game_showxhair and (player.health > 0) ) then showxhair;
               mblurcolor.red := 255;
               mblurcolor.green := 255;
               mblurcolor.blue := 255;
@@ -5827,6 +5829,8 @@ begin
           tmcsdeleteobject(obj_start_lower);
           tmcsdeletetexture(tex_start_upper);
           tmcsdeletetexture(tex_start_lower);
+          if ( settings^.game_showhud and (player.health > 0) ) then showhud;
+          if ( settings^.game_showxhair and (player.health > 0) ) then showxhair;
         end;
     end;
 end;

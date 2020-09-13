@@ -67,9 +67,9 @@ CodeExplorer=CodeExplorer@EditWindow0
 MessageView=MessageView@EditWindow0
 Create=1
 Visible=1
-State=0
+State=1
 Left=189
-Top=180
+Top=179
 Width=1512
 Height=839
 MaxLeft=-1
@@ -86,9 +86,9 @@ BottomPanelData=0000040000000000000000000000000000000000000000000001000000000000
 
 [View0]
 Module=D:\__PR00F__\___developing___\projects\Delphi\PR00FPS\PR00FPS\PR00FPS.dpr
-CursorX=27
-CursorY=2026
-TopLine=2005
+CursorX=11
+CursorY=5972
+TopLine=5972
 LeftCol=1
 
 [View1]
@@ -168,8 +168,8 @@ Dockable=1
 Create=1
 Visible=0
 State=0
-Left=183
-Top=227
+Left=119
+Top=224
 Width=1599
 Height=794
 MaxLeft=-1
@@ -230,6 +230,21 @@ ClientHeight=322
 TBDockHeight=356
 LRDockWidth=190
 Dockable=1
+
+[FPUWindow]
+Create=1
+Visible=0
+State=0
+Left=271
+Top=248
+Width=457
+Height=250
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=441
+ClientHeight=212
+RegisterPane=121
+FlagPane=59
 
 [CodeExplorer@EditWindow0]
 Create=1
