@@ -2746,7 +2746,7 @@ begin
     begin
       if ( (tmcsGetSubXPos(obj_map,subobj)-tmcsGetSubSizeX(obj_map,subobj)/2)/scaling >= bullet^.opos.x ) then
         begin // a marknak balra kell néznie
-          tmcsyrotateobject(mark^.objnum,90);
+          tmcsyrotateobject(mark^.objnum,-90);
           distx := (tmcsGetSubXPos(obj_map,subobj)-tmcsGetSubSizeX(obj_map,subobj)/2)/scaling - bullet^.opos.x;
           tmcssetxpos(mark^.objnum,bullet^.opos.x + distx - GAME_MARKS_DISTFROMWALLS);
           tmcssetypos(mark^.objnum,bullet^.opos.y);
@@ -2754,7 +2754,7 @@ begin
         end
        else if ( (tmcsGetSubXPos(obj_map,subobj)+tmcsGetSubSizeX(obj_map,subobj)/2)/scaling <= bullet^.opos.x ) then
         begin // a marknak jobbra kell néznie
-          tmcsyrotateobject(mark^.objnum,-90);
+          tmcsyrotateobject(mark^.objnum,90);
           distx := bullet^.opos.x - (tmcsGetSubXPos(obj_map,subobj)+tmcsGetSubSizeX(obj_map,subobj)/2)/scaling;
           tmcssetxpos(mark^.objnum,bullet^.opos.x - distx + GAME_MARKS_DISTFROMWALLS);
           tmcssetypos(mark^.objnum,bullet^.opos.y);
@@ -2762,7 +2762,7 @@ begin
         end
        else if ( (tmcsGetSubYPos(obj_map,subobj)-tmcsGetSubSizeY(obj_map,subobj)/2)/scaling >= bullet^.opos.y ) then
         begin // a marknak lefele kell néznie
-          tmcszrotateobject(mark^.objnum,-90);
+          tmcszrotateobject(mark^.objnum,90);
           disty := (tmcsGetSubYPos(obj_map,subobj)-tmcsGetSubSizeY(obj_map,subobj)/2)/scaling - bullet^.opos.y;
           tmcssetxpos(mark^.objnum,bullet^.opos.x);
           tmcssetypos(mark^.objnum,bullet^.opos.y + disty - GAME_MARKS_DISTFROMWALLS);
@@ -2770,22 +2770,22 @@ begin
         end
        else if ( (tmcsGetSubYPos(obj_map,subobj)+tmcsGetSubSizeY(obj_map,subobj)/2)/scaling <= bullet^.opos.y ) then
         begin // a marknak felfele kell néznie
-          tmcszrotateobject(mark^.objnum,90);
+          tmcszrotateobject(mark^.objnum,-90);
           disty := bullet^.opos.y - (tmcsGetSubYPos(obj_map,subobj)+tmcsGetSubSizeY(obj_map,subobj)/2)/scaling;
           tmcssetxpos(mark^.objnum,bullet^.opos.x);
           tmcssetypos(mark^.objnum,bullet^.opos.y - disty + GAME_MARKS_DISTFROMWALLS);
           tmcssetzpos(mark^.objnum,bullet^.opos.z);
         end
        else if ( (-tmcsGetSubZPos(obj_map,subobj)+tmcsGetSubSizeZ(obj_map,subobj)/2)/scaling <= bullet^.opos.z ) then
-        begin // a marknak elõre kell néznie
-          tmcszrotateobject(mark^.objnum,180);
+        begin // a marknak elõre kell néznie (nem kell elforgatni, jó irányba néz)
           distz := bullet^.opos.z - (-tmcsGetSubZPos(obj_map,subobj)+tmcsGetSubSizeZ(obj_map,subobj)/2)/scaling;
           tmcssetxpos(mark^.objnum,bullet^.opos.x);
           tmcssetypos(mark^.objnum,bullet^.opos.y);
           tmcssetzpos(mark^.objnum,bullet^.opos.z - distz + GAME_MARKS_DISTFROMWALLS);
         end
        else if ( (-tmcsGetSubZPos(obj_map,subobj)-tmcsGetSubSizeZ(obj_map,subobj)/2)/scaling >= bullet^.opos.z ) then
-        begin // a marknak hátrafele kell néznie (nem kell elforgatni, jó irányba néz)
+        begin // a marknak hátrafele kell néznie
+          tmcszrotateobject(mark^.objnum,180);
           distz := (-tmcsGetSubZPos(obj_map,subobj)-tmcsGetSubSizeZ(obj_map,subobj)/2)/scaling - bullet^.opos.z;
           tmcssetxpos(mark^.objnum,bullet^.opos.x);
           tmcssetypos(mark^.objnum,bullet^.opos.y);
