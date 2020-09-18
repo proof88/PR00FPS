@@ -616,11 +616,8 @@ begin
   tmcssetobjectblendmode(obj_hudtport2,GL_one,GL_one);
   tmcssetxpos(obj_hudtport2,-gamewindow.clientsize.X/2 + tmcsgetsizex(obj_hudtport2)/2);
   tmcscompileobject(obj_hudtport2);
-  if ( not(player.hasteleport) ) then
-    begin
-      tmcshideobject(obj_hudtport);
-      tmcshideobject(obj_hudtport2);
-    end;
+  tmcshideobject(obj_hudtport);
+  tmcshideobject(obj_hudtport2);
 
   obj_qdmg := tmcsCreatePlane(gamewindow.clientsize.X,gamewindow.clientsize.Y);
   tmcssetobjectstickedstate(obj_qdmg,TRUE);
@@ -631,8 +628,7 @@ begin
   tmcssetobjectblending(obj_qdmg,TRUE);
   tmcssetobjectblendmode(obj_qdmg,GL_one,GL_one);
   tmcscompileobject(obj_qdmg);
-  if ( player.hasquaddamage ) then tmcsshowobject(obj_qdmg)
-    else tmcshideobject(obj_qdmg);
+  tmcshideobject(obj_qdmg);
 
   // számok textúrái
   for i := 0 to 9 do
@@ -1762,6 +1758,7 @@ begin
   player.jumping := FALSE;
   player.injurycausedbyfalling := 0;
   player.hasteleport := FALSE;
+  player.hasquaddamage := FALSE;
   player.lastqmd := 0;
   player.qdmgrot := 0.0;
   player.health := game_MAX_HEALTH;
@@ -2929,6 +2926,7 @@ begin
   new(xplosion);
   xplosions.Add(xplosion);
   xplosion^.objnum := tmcsCreateClonedObject(obj_xplosion);
+  tmcsshowobject(xplosion^.objnum);
   xplosion^.secondary := scndry;
   xplosion^.owner := owner;
   tmcsSetXPos(xplosion^.objnum,x);
@@ -3425,6 +3423,7 @@ begin
       if ( pos('hidehide',tmcsgetsubname(obj_wpn_pistol,i)) > 0 ) then tmcshidesubobject(obj_wpn_pistol,i);
     end;
   tmcsCompileObject(obj_wpn_pistol);
+  tmcsHideObject(obj_wpn_pistol);
   obj_wpn_pistolmuzzle := tmcsCreateObjectFromFile(GAME_PATH_WPNS+'pistol\pistol_muzzle.obj',TRUE);
   tmcsSetObjectRotationYXZ(obj_wpn_pistolmuzzle);
   if ( obj_wpn_pistolmuzzle > -1 ) then
@@ -3452,6 +3451,7 @@ begin
   tmcssetobjectblending(obj_wpn_mchgunlcd1,TRUE);
   tmcssetobjectblendmode(obj_wpn_mchgunlcd1,GL_SRC_ALPHA,GL_ONE);
   tmcssetobjectcolorkey(obj_wpn_mchgunlcd1,255,255,255,255);
+  tmcshideobject(obj_wpn_mchgunlcd1);
   obj_wpn_mchgunlcd2 := tmcsCreateObjectFromFile(GAME_PATH_WPNS+'mchgun\mchgun_lcd2.obj',FALSE);
   tmcsSetObjectRotationYXZ(obj_wpn_mchgunlcd2);
   tmcsscaleobject(obj_wpn_mchgunlcd2,GAME_WPN_SCALING);
@@ -3459,6 +3459,7 @@ begin
   tmcssetobjectblending(obj_wpn_mchgunlcd2,TRUE);
   tmcssetobjectblendmode(obj_wpn_mchgunlcd2,GL_SRC_ALPHA,GL_ONE);
   tmcssetobjectcolorkey(obj_wpn_mchgunlcd1,255,255,255,255);
+  tmcshideobject(obj_wpn_mchgunlcd2);
   obj_wpn_mchgunlcdwarning :=  tmcsCreateObjectFromFile(GAME_PATH_WPNS+'mchgun\mchgun_lcdwarning.obj',FALSE);
   tmcsSetObjectRotationYXZ(obj_wpn_mchgunlcdwarning);
   tmcsscaleobject(obj_wpn_mchgunlcdwarning,GAME_WPN_SCALING);
@@ -3466,6 +3467,7 @@ begin
   tmcssetobjectblending(obj_wpn_mchgunlcdwarning,TRUE);
   tmcssetobjectblendmode(obj_wpn_mchgunlcdwarning,GL_SRC_ALPHA,GL_ONE);
   tmcssetobjectcolorkey(obj_wpn_mchgunlcdwarning,255,255,255,GAME_WPN_MCHGUN_LCDWARNING_ALPHA_MAX);
+  tmcshideobject(obj_wpn_mchgunlcdwarning);
   tmcscompileobject(obj_wpn_mchgunlcdwarning);
   for i := 0 to 9 do
     begin
@@ -6022,6 +6024,7 @@ begin
   tmcssetobjectblending(obj_xplosion,TRUE);
   tmcssetobjectblendmode(obj_xplosion,gl_src_alpha,gl_one);
   tmcscompileobject(obj_xplosion);
+  tmcshideobject(obj_xplosion);
 
   PrintLoadingText(GAME_LOADING_TEXTS[11],12);
   botsInitialize(alliedlist);

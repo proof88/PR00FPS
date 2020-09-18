@@ -67,7 +67,7 @@ CodeExplorer=CodeExplorer@EditWindow0
 MessageView=MessageView@EditWindow0
 Create=1
 Visible=1
-State=1
+State=0
 Left=189
 Top=179
 Width=1512
@@ -86,16 +86,16 @@ BottomPanelData=0000040000000000000000000000000000000000000000000001000000000000
 
 [View0]
 Module=D:\__PR00F__\___developing___\projects\Delphi\PR00FPS\PR00FPS\PR00FPS.dpr
-CursorX=11
-CursorY=5972
-TopLine=5972
+CursorX=63
+CursorY=2106
+TopLine=2086
 LeftCol=1
 
 [View1]
 Module=D:\__PR00F__\___developing___\projects\Delphi\PR00FPS\PR00FPS\u_consts.pas
 CursorX=1
-CursorY=184
-TopLine=163
+CursorY=221
+TopLine=200
 LeftCol=1
 
 [View2]
@@ -121,9 +121,9 @@ LeftCol=1
 
 [View5]
 Module=D:\__PR00F__\___developing___\projects\Delphi\PR00FPS\PR00FPS\u_map.pas
-CursorX=53
-CursorY=335
-TopLine=314
+CursorX=127
+CursorY=9
+TopLine=161
 LeftCol=1
 
 [Watches]
@@ -214,6 +214,26 @@ ArrangeBy=Name
 SelectedItem=
 ExpandedItems=
 HiddenCategories=
+
+[ThreadStatusWindow]
+Create=1
+Visible=0
+State=0
+Left=488
+Top=524
+Width=624
+Height=152
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=608
+ClientHeight=118
+TBDockHeight=152
+LRDockWidth=624
+Dockable=1
+Column0Width=145
+Column1Width=100
+Column2Width=115
+Column3Width=250
 
 [ObjectTree]
 Create=1
