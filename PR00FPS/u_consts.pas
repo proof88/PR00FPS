@@ -59,7 +59,7 @@ const
 
   GAME_FPS_INTERVAL = 200;                                       // az fps-statisztikák frissítési intervalluma ms-ben
 
-  GAME_MAXFPS = 99;                                             // max. fps (-1, ha a lehetõ legnagyobb fps-t akarjuk elérni)
+  GAME_MAXFPS = -1;                                             // max. fps (-1, ha a lehetõ legnagyobb fps-t akarjuk elérni)
   GAME_WORLD_GRAVITY = 20;                                     // gravitáció, milyen gyorsan esnek a playerek a talajra
   GAME_WORLD_GRAVITY_MAX = 2000;                                  // max. ennyivel húzhatja le a dolgokat a gravitáció
 

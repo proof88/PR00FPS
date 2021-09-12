@@ -9,18 +9,18 @@ File_6=SourceModule,'D:\__PR00F__\___developing___\projects\Delphi\PR00FPS\u_col
 File_7=SourceModule,'D:\__PR00F__\___developing___\EngineVerseny\Enyém\Példák\P03\gfxcore.pas',0,1,163,35,35,0,0
 
 [Modules]
-Module0=D:\__PR00F__\___developing___\projects\Delphi\PR00FPS\PR00FPS\PR00FPS.dpr
-Module1=D:\__PR00F__\___developing___\projects\Delphi\PR00FPS\PR00FPS\u_consts.pas
+Module0=D:\__PR00F__\___developing___\projects\Delphi\PR00FPS\PR00FPS\u_consts.pas
+Module1=D:\__PR00F__\___developing___\projects\Delphi\PR00FPS\PR00FPS\PR00FPS.dpr
 Module2=D:\__PR00F__\___developing___\projects\Delphi\PR00FPS\PR00FPS\u_bots.pas
 Count=3
 EditWindowCount=1
 
-[D:\__PR00F__\___developing___\projects\Delphi\PR00FPS\PR00FPS\PR00FPS.dpr]
+[D:\__PR00F__\___developing___\projects\Delphi\PR00FPS\PR00FPS\u_consts.pas]
 ModuleType=SourceModule
 FormState=0
 FormOnTop=0
 
-[D:\__PR00F__\___developing___\projects\Delphi\PR00FPS\PR00FPS\u_consts.pas]
+[D:\__PR00F__\___developing___\projects\Delphi\PR00FPS\PR00FPS\PR00FPS.dpr]
 ModuleType=SourceModule
 FormState=0
 FormOnTop=0
@@ -30,13 +30,13 @@ ModuleType=SourceModule
 FormState=0
 FormOnTop=0
 
-[C:\Program Files (x86)\Borland\Delphi7\Projects\ProjectGroup1.bpg]
+[d:\__PR00F__\___developing___\projects\Delphi\PR00FPS\PR00FPS\ProjectGroup1.bpg]
 FormState=0
 FormOnTop=0
 
 [EditWindow0]
 ViewCount=3
-CurrentView=0
+CurrentView=1
 View0=0
 View1=1
 View2=2
@@ -63,16 +63,16 @@ BottomPanelData=0000040000000000000000000000000000000000000000000001000000000000
 
 [View0]
 Module=D:\__PR00F__\___developing___\projects\Delphi\PR00FPS\PR00FPS\PR00FPS.dpr
-CursorX=56
-CursorY=503
-TopLine=479
+CursorX=176
+CursorY=6426
+TopLine=2913
 LeftCol=1
 
 [View1]
 Module=D:\__PR00F__\___developing___\projects\Delphi\PR00FPS\PR00FPS\u_consts.pas
-CursorX=1
-CursorY=89
-TopLine=67
+CursorX=19
+CursorY=62
+TopLine=41
 LeftCol=1
 
 [View2]
