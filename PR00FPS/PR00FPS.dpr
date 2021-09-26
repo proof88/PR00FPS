@@ -176,6 +176,22 @@ var
   escapestop,tabulatorstop: boolean;
   upstop,downstop: boolean;                // menüben fel-le mozgáshoz kell, h jó legyen a navigálás
   mouseleftstop: boolean;
+
+  key_t_stop: boolean;
+  key_g_stop: boolean;
+  key_o_stop: boolean;
+  key_b_stop: boolean;
+  key_p_stop: boolean;
+  key_c_stop: boolean;
+  key_x_stop: boolean;
+  key_return_stop: boolean;
+
+  prre_rh_iRenderPath: word;
+  prre_rh_iOCmethod: word;
+  prre_rh_bOCdrawBoundingBoxes: boolean;
+  prre_rh_bOCdrawIfQueryPending: boolean;
+  prre_rh_bOrderByDistance: boolean;
+
   mousemoved: boolean;
   rhack: boolean;
   ocur: tpoint;                            // egérkurzor akt. pozíciója
@@ -4272,6 +4288,112 @@ begin
             end;
         end
        else escapestop := FALSE;
+
+        // next render path
+        if ( inputiskeypressed(vkkeyscan('t')) ) then
+          begin
+            if ( not(key_t_stop) ) then
+              begin
+                key_t_stop := TRUE;
+                prre_rh_iRenderPath := prre_rh_iRenderPath+1;
+                if ( prre_rh_iRenderPath > 2 ) then
+                  prre_rh_iRenderPath := 0;
+
+                tmcsSetRenderPath(prre_rh_iRenderPath);
+              end;
+          end
+         else key_t_stop := FALSE;
+
+        // prev render path
+        if ( inputiskeypressed(vkkeyscan('g')) ) then
+          begin
+            if ( not(key_g_stop) ) then
+              begin
+                key_g_stop := TRUE;
+                if ( prre_rh_iRenderPath > 0 ) then
+                  prre_rh_iRenderPath := prre_rh_iRenderPath-1
+                 else
+                  prre_rh_iRenderPath := 2;
+
+                tmcsSetRenderPath(prre_rh_iRenderPath);
+              end;
+          end
+         else key_g_stop := FALSE;
+
+        // next occlusion culling method
+        if ( inputiskeypressed(vkkeyscan('o')) ) then
+          begin
+            if ( not(key_o_stop) ) then
+              begin
+                key_o_stop := TRUE;
+                if ( prre_rh_iOCmethod < 1 ) then
+                  prre_rh_iOCmethod := prre_rh_iOCmethod+1
+                 else
+                  prre_rh_iOCmethod := 0;
+
+                tmcsSetOcclusionCullingMethod(prre_rh_iOCmethod);
+              end;
+          end
+         else key_o_stop := FALSE;
+
+        // draw occlusion culling bounding boxes of occludees
+        if ( inputiskeypressed(vkkeyscan('b')) ) then
+          begin
+            if ( not(key_b_stop) ) then
+              begin
+                key_b_stop := TRUE;
+                prre_rh_bOCdrawBoundingBoxes := not(prre_rh_bOCdrawBoundingBoxes);
+                tmcsSetOcclusionCullingBoundingBoxes(prre_rh_bOCdrawBoundingBoxes);
+              end;
+          end
+         else key_b_stop := FALSE;
+
+        // draw occludees if their query is pending
+        if ( inputiskeypressed(vkkeyscan('p')) ) then
+          begin
+            if ( not(key_p_stop) ) then
+              begin
+                key_p_stop := TRUE;
+                prre_rh_bOCdrawIfQueryPending := not(prre_rh_bOCdrawIfQueryPending);
+                tmcsSetOcclusionCullingDrawIfPending(prre_rh_bOCdrawIfQueryPending);
+              end;
+          end
+         else key_p_stop := FALSE;
+
+        // order objects by distance to camera
+        if ( inputiskeypressed(vkkeyscan('c')) ) then
+          begin
+            if ( not(key_c_stop) ) then
+              begin
+                key_c_stop := TRUE;
+                prre_rh_bOrderByDistance := not(prre_rh_bOrderByDistance);
+                tmcsSetOrderingByDistance(prre_rh_bOrderByDistance);
+              end;
+          end
+         else key_c_stop := FALSE;
+
+        // reset engine statistics
+        if ( inputiskeypressed(vkkeyscan('x')) ) then
+          begin
+            if ( not(key_x_stop) ) then
+              begin
+                key_x_stop := TRUE;
+                tmcsResetStatistics();
+              end;
+          end
+         else key_x_stop := FALSE;
+
+        // engine dump to console
+        if ( inputiskeypressed(VK_RETURN) ) then
+          begin
+            if ( not(key_return_stop) ) then
+              begin
+                key_return_stop := TRUE;
+                tmcsEngineDump();
+              end;
+          end
+         else key_return_stop := FALSE;
+
     end;
   if ( inputiskeypressed(VK_CONTROL)
         and
@@ -6305,6 +6427,13 @@ begin
           frm_warning.ShowModal;
           frm_warning.Free;
         end;
+        
+        prre_rh_iRenderPath := 2; // PRRE_RH_RP_OCCLUSION_CULLED
+        prre_rh_iOCmethod := 1;   // async
+        prre_rh_bOCdrawBoundingBoxes := false;
+        prre_rh_bOCdrawIfQueryPending := true;
+        prre_rh_bOrderByDistance := true;
+
       cfgAllocBuffer;
       cfgReadIntoBuffer;
       settings := cfgGetPointerToBuffer();
