@@ -2617,7 +2617,7 @@ begin
   tmcssetobjectblending(smoke^.objnum,TRUE);
   tmcssetobjectblendmode(smoke^.objnum,s,d);
   tmcssetobjectdoublesided(smoke^.objnum,TRUE);
-  tmcscompileobject(smoke^.objnum);
+  //tmcscompileobject(smoke^.objnum);
 end;
 
 procedure DeleteSmoke(index: integer);
@@ -2748,7 +2748,7 @@ begin
   tmcsadjustuvcoords(mark^.objnum,0.1);
   tmcssetobjectblending(mark^.objnum,TRUE);
   tmcssetobjectblendmode(mark^.objnum,GL_src_alpha_saturate,GL_src_color);
-  tmcscompileobject(mark^.objnum);
+  //tmcscompileobject(mark^.objnum);
 
   // tmcssetxpos(mark^.objnum,tmcsgetxpos(mark^.objnum) - (cos((mark^.repay+90)*pi/180)/10)*(1-(tmp*tmp)) * 0.01);
   // tmcssetypos(mark^.objnum,tmcsgetypos(mark^.objnum) - (cos((mark^.repax+90)*pi/180)/10) * 0.01);
