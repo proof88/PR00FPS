@@ -4,7 +4,9 @@
 
 PR00FPS game written in Delphi in 2007
 
-Some dlls and data directory are not uploaded. However they can be acquired by installing the game. One location is: https://www.indiedb.com/games/pr00fps
+If you want to try this game, you can easily install it, just download the installer from https://www.indiedb.com/games/pr00fps .
+
+If you want to build and debug/test, it is not enough to build the game using Delphi, you also need to extract data_and_fmod_binaries.zip after checking out this repo onto your PC.
 
 Source code of the original tmcsgfxlib graphics library used by PR00FPS is here:
 https://github.com/proof88/tmcsgfxlib2
